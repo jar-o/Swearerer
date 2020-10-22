@@ -1,0 +1,29 @@
+{
+   "background": {
+      "scripts": [ "background.js" ]
+   },
+   "content_scripts": [ {
+      "js": [ "jquery-2.1.4.min.js", "shared.js", "content.js" ],
+      "matches": [ "*://*.netflix.com/*" ],
+      "run_at": "document_start"
+   } ],
+   "description": "Mute offensive language in Netflix",
+   "icons": {
+      "128": "icon128.png",
+      "64": "icon64.png",
+      "48": "icon48.png",
+      "32": "icon32.png",
+      "16": "icon16.png"
+   },
+   "manifest_version": 2,
+   "name": "Swearerer",
+   "browser_action": {
+       "default_popup": "popup.html",
+       "default_icon": "icon32.png",
+       "default_title": "Swearerer"
+   },
+   "permissions": [ "storage", "tabs" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.0",
+    "web_accessible_resources": ["nubile.js", "images/*.png"]
+}
