@@ -54,14 +54,26 @@ function filter() {
     lastSubslen = 0;
     setInterval(function() {
         subslen = 0;
-        $('div.player-timedtext-text-container').each(function() {
-            if (!$(this).text().endsWith('~')) { // User turned on subtitles
-                subslen += $.trim($(this).text()).length;
-                if ($.trim($(this).text()).length > 1) {
-                    console.log($(this).text().length, $(this).text());
+        if (isNetflix()) {
+            $('div.player-timedtext-text-container').each(function() {
+                if (!$(this).text().endsWith('~')) { // User turned on subtitles
+                    subslen += $.trim($(this).text()).length;
+                    if ($.trim($(this).text()).length > 1) {
+                        console.log($(this).text().length, $(this).text());
+                    }
                 }
-            }
-        });
+            });
+        }
+        if (isPrime()) {
+            $('.atvwebplayersdk-captions-text').each(function() {
+                if (!$(this).text().endsWith('~')) { // User turned on subtitles
+                    subslen += $.trim($(this).text()).length;
+                    if ($.trim($(this).text()).length > 1) {
+                        console.log($(this).text().length, $(this).text());
+                    }
+                }
+            });
+        }
         if (subslen > 0 && lastSubslen == 0) {
             muted = muteTab(true);
             lastSubslen = subslen;

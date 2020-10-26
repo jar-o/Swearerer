@@ -4,7 +4,7 @@
    },
    "content_scripts": [ {
       "js": [ "jquery-2.1.4.min.js", "shared.js", "content.js" ],
-      "matches": [ "*://*.netflix.com/*" ],
+      "matches": [ "*://*.netflix.com/*", "*://*.amazon.com/*" ],
       "run_at": "document_start"
    } ],
    "description": "Mute offensive language in Netflix",

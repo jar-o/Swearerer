@@ -19,7 +19,10 @@ function tabReload() {
     chrome.tabs.query({},function(tabs){
         tabs.forEach(function(tab){
             url = new URL(tab.url);
-            if (url.host.indexOf('netflix.com') !== -1) {
+            if (
+                url.host.indexOf('netflix.com') !== -1 ||
+                url.host.indexOf('amazon.com') !== -1
+            ) {
                 console.log(url.host);
                 chrome.tabs.reload(tab.id);
             }
