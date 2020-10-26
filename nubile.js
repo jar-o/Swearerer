@@ -1,4 +1,4 @@
-swearerFilterList = ['badword', 'naughty phrase', 'etc'].join('|'); // MUST be on first line!
+swearererFilterList = ['badword', 'naughty phrase', 'etc'].join('|'); // MUST be on first line!
 
 function swearererIsNetflix() {
     return !(window.location.host.indexOf('netflix.com') === -1);
@@ -73,7 +73,7 @@ function swearererTTML2Scrubber(xhrobj) {
     return serializer.serializeToString(xmdoc);
 }
 
-var swearererRe = new RegExp(swearerFilterList, 'gi');
+var swearererRe = new RegExp(swearererFilterList, 'gi');
 
 if (swearererIsNetflix()) {
     console.log('netflix');
